@@ -1,6 +1,9 @@
 package conv
 
-import "testing"
+import (
+	"database/sql"
+	"testing"
+)
 
 func TestConv(t *testing.T) {
 	a := int64(-1)
@@ -56,6 +59,18 @@ func TestConv(t *testing.T) {
 		{"0xfeed", 0, 0, 0, "0xfeed", true},
 		{"017", 17, 17, 17, "017", true},
 		{"", 0, 0, 0, "", false},
+
+		// sql nullable values
+		{sql.NullBool{true, true}, 1, 1, 1, "true", true},
+		{sql.NullBool{false, true}, 0, 0, 0, "false", false},
+		{sql.NullBool{true, false}, 0, 0, 0, "false", false},
+		{sql.NullBool{false, false}, 0, 0, 0, "false", false},
+		{sql.NullInt64{1, true}, 1, 1, 1, "1", true},
+		{sql.NullInt64{1, false}, 0, 0, 0, "0", false},
+		{sql.NullFloat64{1, true}, 1, 1, 1, "1", true},
+		{sql.NullFloat64{1, false}, 0, 0, 0, "0", false},
+		{sql.NullString{"1", true}, 1, 1, 1, "1", true},
+		{sql.NullString{"1", false}, 0, 0, 0, "", false},
 	}
 
 	for _, data := range tbl {

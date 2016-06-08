@@ -1,6 +1,7 @@
 package conv
 
 import (
+	"database/sql"
 	"fmt"
 	"reflect"
 )
@@ -75,6 +76,41 @@ func FromAny(i interface{}) Conv {
 		return FromString(v)
 	case *string:
 		return FromString(*v)
+
+	case sql.NullInt64:
+		if v.Valid {
+			return FromInt(v.Int64)
+		}
+		return FromInt(0)
+	case *sql.NullInt64:
+		if v.Valid {
+			return FromInt(v.Int64)
+		}
+		return FromInt(0)
+	case sql.NullFloat64:
+		if v.Valid {
+			return FromFloat(v.Float64)
+		}
+		return FromFloat(0)
+	case *sql.NullFloat64:
+		if v.Valid {
+			return FromFloat(v.Float64)
+		}
+		return FromFloat(0)
+	case sql.NullString:
+		if v.Valid {
+			return FromString(v.String)
+		}
+		return FromString("")
+	case *sql.NullString:
+		if v.Valid {
+			return FromString(v.String)
+		}
+		return FromString("")
+	case sql.NullBool:
+		return FromBool(v.Bool && v.Valid)
+	case *sql.NullBool:
+		return FromBool(v.Bool && v.Valid)
 
 	case fmt.Stringer:
 		return FromString(v.String())
