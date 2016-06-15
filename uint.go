@@ -5,7 +5,7 @@ import "strconv"
 // FromUint converts uint to other types
 type FromUint uint
 
-// AsInt converts uint to int
+// AsInt converts uint to int by type-casting.
 func (u FromUint) AsInt() int64 {
 	return int64(u)
 }
@@ -15,7 +15,7 @@ func (u FromUint) AsUint() uint64 {
 	return uint64(u)
 }
 
-// AsFloat converts uint to float64.
+// AsFloat converts uint to float64 by type-casting.
 func (u FromUint) AsFloat() float64 {
 	return float64(u)
 }
@@ -33,7 +33,7 @@ func (u FromUint) AsBool() bool {
 // FromUint64 converts uint64 to other types
 type FromUint64 uint64
 
-// AsInt converts uint64 to int64
+// AsInt converts uint64 to int64 by type-casting.
 func (u FromUint64) AsInt() int64 {
 	return int64(u)
 }
@@ -43,7 +43,7 @@ func (u FromUint64) AsUint() uint64 {
 	return uint64(u)
 }
 
-// AsFloat converts uint64 to float64.
+// AsFloat converts uint64 to float64 by type-casting.
 func (u FromUint64) AsFloat() float64 {
 	return float64(u)
 }

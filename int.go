@@ -10,12 +10,12 @@ func (i FromInt) AsInt() int64 {
 	return int64(i)
 }
 
-// AsUint converts int to uint64.
+// AsUint converts int to uint64 by type-casting.
 func (i FromInt) AsUint() uint64 {
 	return uint64(i)
 }
 
-// AsFloat converts int to float64.
+// AsFloat converts int to float64 by type-casting.
 func (i FromInt) AsFloat() float64 {
 	return float64(i)
 }
@@ -38,12 +38,12 @@ func (i FromInt64) AsInt() int64 {
 	return int64(i)
 }
 
-// AsUint converts int64 to uint64.
+// AsUint converts int64 to uint64 by type-casting.
 func (i FromInt64) AsUint() uint64 {
 	return uint64(i)
 }
 
-// AsFloat converts int64 to float64.
+// AsFloat converts int64 to float64 by type-casting.
 func (i FromInt64) AsFloat() float64 {
 	return float64(i)
 }

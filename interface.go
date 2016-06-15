@@ -7,6 +7,12 @@ import (
 )
 
 // FromAny returns a Conv to converts anything to primitive types
+//
+// For numeric types, bool, string, see FromXXX types. []rune is treated as string
+//
+// For sql nullable types, converts to zero value if not valid. If valid, same as above.
+//
+// For other types, works as FromString when excepts AsBool. Detect zero value for AsBool.
 func FromAny(i interface{}) Conv {
 	switch v := i.(type) {
 	case int:

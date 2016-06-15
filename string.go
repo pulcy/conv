@@ -38,7 +38,7 @@ func (s FromString) AsString() string {
 }
 
 // AsBool converts string to bool by calling strconv.ParseBool.
-// It will return false on format error.
+// It will return false on if format error or empty string.
 func (s FromString) AsBool() bool {
 	if s.AsInt() != 0 {
 		return true
