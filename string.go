@@ -51,3 +51,9 @@ func (s FromString) AsBool() bool {
 	}
 	return string(s) != ""
 }
+
+func (b FromString) IsBool() bool   { return false }
+func (b FromString) IsInt() bool    { return false }
+func (b FromString) IsUint() bool   { return false }
+func (b FromString) IsFloat() bool  { return false }
+func (b FromString) IsString() bool { return true }

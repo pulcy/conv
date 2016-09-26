@@ -165,3 +165,9 @@ func (p perper) AsBool() bool {
 
 	return true
 }
+
+func (b perper) IsBool() bool   { return false }
+func (b perper) IsInt() bool    { return false }
+func (b perper) IsUint() bool   { return false }
+func (b perper) IsFloat() bool  { return false }
+func (b perper) IsString() bool { return false }

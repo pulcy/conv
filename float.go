@@ -29,3 +29,9 @@ func (f FromFloat) AsString() string {
 func (f FromFloat) AsBool() bool {
 	return f != 0
 }
+
+func (b FromFloat) IsBool() bool   { return false }
+func (b FromFloat) IsInt() bool    { return false }
+func (b FromFloat) IsUint() bool   { return false }
+func (b FromFloat) IsFloat() bool  { return true }
+func (b FromFloat) IsString() bool { return false }

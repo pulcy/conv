@@ -39,3 +39,9 @@ func (b FromBool) AsString() string {
 func (b FromBool) AsBool() bool {
 	return bool(b)
 }
+
+func (b FromBool) IsBool() bool   { return true }
+func (b FromBool) IsInt() bool    { return false }
+func (b FromBool) IsUint() bool   { return false }
+func (b FromBool) IsFloat() bool  { return false }
+func (b FromBool) IsString() bool { return false }

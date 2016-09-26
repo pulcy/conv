@@ -57,3 +57,15 @@ func (i FromInt64) AsString() string {
 func (i FromInt64) AsBool() bool {
 	return i != 0
 }
+
+func (b FromInt) IsBool() bool   { return false }
+func (b FromInt) IsInt() bool    { return true }
+func (b FromInt) IsUint() bool   { return false }
+func (b FromInt) IsFloat() bool  { return false }
+func (b FromInt) IsString() bool { return false }
+
+func (b FromInt64) IsBool() bool   { return false }
+func (b FromInt64) IsInt() bool    { return true }
+func (b FromInt64) IsUint() bool   { return false }
+func (b FromInt64) IsFloat() bool  { return false }
+func (b FromInt64) IsString() bool { return false }
